@@ -2,11 +2,10 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Tests\TestCase;
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use JWTAuth;
+use Tests\TestCase;
 
 class ApiUserTest extends TestCase
 {
@@ -24,7 +23,7 @@ class ApiUserTest extends TestCase
             'password' => 'test12',
             'password_confirmation' => 'test12',
         ]);
-        
+
         $response->assertStatus(201);
     }
 
@@ -41,7 +40,7 @@ class ApiUserTest extends TestCase
             'email' => $user->email,
             'password' => 'password',
         ]);
-        
+
         $response->assertStatus(200);
     }
 
@@ -57,8 +56,8 @@ class ApiUserTest extends TestCase
         $token = JWTAuth::fromUser($user);
 
         $response = $this->withHeaders([
-            'Authorization' => 'Bearer '. $token
-            ])->post('/api/auth/signout');
+            'Authorization' => 'Bearer ' . $token,
+        ])->post('/api/auth/signout');
 
         $response->assertStatus(200);
     }
@@ -73,7 +72,7 @@ class ApiUserTest extends TestCase
         $user = User::factory()->create();
 
         $response = $this->actingAs($user)->get('/api/auth/user');
-        
+
         $response->assertStatus(200);
     }
 }
