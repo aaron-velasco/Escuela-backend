@@ -26,9 +26,17 @@ Para poner funcionar la aplicación sigue los siguientes pasos
    git clone https://github.com/aaron-velasco/Escuela-backend.git
    ```
 
+### Testing
+
+Para ejecutar los tests de la aplicación usa el comando:
+   ```php
+   php artisan test
+   ```
 
 
 
 <!-- USAGE EXAMPLES -->
 ## Uso
+
+El uso de la API está documentado mediante el archivo de Postman (En progreso)
 
