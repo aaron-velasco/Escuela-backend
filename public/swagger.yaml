@@ -71,6 +71,9 @@ paths:
       produces:
       - "application/json"
       parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer Token"
       - in: "body"
         name: "body"
         description: "Objeto alumno para añadir"
@@ -93,6 +96,9 @@ paths:
       produces:
       - "application/json"
       parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer Token"
       - in: "body"
         name: "body"
         description: "Objeto alumno con datos a actualizar"
@@ -117,6 +123,9 @@ paths:
       produces:
       - "application/json"
       parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer Token"
       - in: "body"
         name: "uuid"
         schema:
@@ -187,7 +196,10 @@ paths:
       operationId: "logoutUser"
       produces:
       - "application/json"
-      parameters: []
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer Token"
       responses:
         default:
           description: "successful operation"
