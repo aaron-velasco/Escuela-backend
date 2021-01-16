@@ -53,17 +53,6 @@ Para poner funcionar la aplicación sigue los siguientes pasos
    docker-compose exec app php artisan migrate
    ```
 
-Para acceder a laAPI, accede a la url de la aplicación a través del puerto 8000, por ejemplo:
-   ```
-   http://localhost:8000
-   ```
-
-Para acceder a la documentación en Swagger UI de la API, accede a la url de la aplicación a través del puerto 8080, por ejemplo:
-   ```
-   http://localhost:8080
-   ```
-
-
 ## Testing
 
 Para ejecutar los tests de la aplicación Laravel usa el comando:
@@ -76,5 +65,15 @@ Para ejecutar los tests de la aplicación Laravel usa el comando:
 <!-- USAGE EXAMPLES -->
 ## Uso
 
-El uso de la API está documentado mediante el archivo de Postman (En progreso)
+Para acceder a laAPI, accede a la url de la aplicación a través del puerto 8000, por ejemplo:
+   ```
+   http://localhost:8000
+   ```
+
+Para acceder a la documentación en Swagger UI de la API, accede a la url de la aplicación a través del puerto 8080, por ejemplo:
+   ```
+   http://localhost:8080
+   ```
+
+A mayores hay un archivo de postman en el repositorio para hacer pruebas.
 
