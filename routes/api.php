@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JwtAuthController;
+use App\Http\Controllers\AlumnoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,6 @@ use App\Http\Controllers\JwtAuthController;
 */
 
 Route::group([
-    'middleware' => 'api',
     'prefix' => 'auth'
 ], function ($router) {
     Route::post('/signup', [JwtAuthController::class, 'register']);
@@ -25,3 +25,9 @@ Route::group([
     Route::post('/token-refresh', [JwtAuthController::class, 'refresh']);
     Route::post('/signout', [JwtAuthController::class, 'signout']);
 });
+
+Route::get('alumnos', [AlumnoController::class, 'index']);
+Route::get('alumno', [AlumnoController::class, 'show']);
+Route::post('alumno', [AlumnoController::class, 'store']);
+Route::put('alumno', [AlumnoController::class, 'update']);
+Route::delete('alumno', [AlumnoController::class, 'destroy']);
