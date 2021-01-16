@@ -9,9 +9,8 @@ use Tests\TestCase;
 class ApiUserTest extends TestCase
 {
     use RefreshDatabase;
-
     /**
-     * A basic feature test example.
+     * Comprueba si se puede registrar un nuevo usuario
      *
      * @return void
      */
@@ -25,5 +24,21 @@ class ApiUserTest extends TestCase
         ]);
         
         $response->assertStatus(201);
+    }
+
+    /**
+     * Comprueba si un usuario puede acceder con sus credenciales
+     *
+     * @return void
+     */
+    public function testCanSignIn()
+    {
+        $this->seed();
+        $response = $this->post('/api/auth/signin', [
+            'email' => 'test@test.com',
+            'password' => 'test12',
+        ]);
+        
+        $response->assertStatus(200);
     }
 }
