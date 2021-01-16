@@ -4,7 +4,6 @@ namespace Database\Factories;
 
 use App\Models\Alumno;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 class AlumnoFactory extends Factory
 {
@@ -23,6 +22,7 @@ class AlumnoFactory extends Factory
     public function definition()
     {
         return [
+            'uuid'              => $this->faker->uuid,
             'nombre'            => $this->faker->name,
             'apellidos'         => $this->faker->lastName . $this->faker->lastName,
             'direccion'         => $this->faker->streetAddress,
