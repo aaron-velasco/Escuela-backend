@@ -44,6 +44,15 @@ services:
     networks:
       - escuela
 
+  swagger:
+    image: swaggerapi/swagger-ui
+    environment:
+      API_URL: "http://localhost:8000/swagger.yaml"
+    ports:
+      - "8080:8080"
+    networks:
+      - escuela
+
 networks:
   escuela:
     driver: bridge
