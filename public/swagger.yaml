@@ -1,0 +1,399 @@
+swagger: "2.0"
+info:
+  description: "Documentación de uso de la API Escuela"
+  version: "1.0.0"
+  title: "API Escuela"
+host: "localhost:8000"
+basePath: "/api"
+tags:
+- name: "alumno"
+  description: "Toda la información sobre alumnos"
+- name: "user"
+  description: "Operaciones sobre la sesión del usuario"
+schemes:
+- "https"
+- "http"
+paths:
+  /alumnos:
+    get:
+      tags:
+      - "alumno"
+      summary: "Obtener listado de alumnos"
+      description: ""
+      operationId: "indexAlumno"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "uuid"
+        schema:
+          $ref: "#/definitions/AlumnoID"
+        description: "Id del alumno a mostrar"
+        required: true
+      responses:
+        "200":
+          description: "Listado de alumnos"
+          schema:
+            $ref: "#/definitions/AlumnoContent"
+  /alumno:
+    get:
+      tags:
+      - "alumno"
+      summary: "Obtener información alumno"
+      description: ""
+      operationId: "showAlumno"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "uuid"
+        schema:
+          $ref: "#/definitions/AlumnoID"
+        description: "Id del alumno a mostrar"
+        required: true
+      responses:
+        "200":
+          description: "Listado de alumnos"
+          schema:
+            $ref: "#/definitions/AlumnoContent"
+    post:
+      tags:
+      - "alumno"
+      summary: "Añadir nuevo alumno"
+      description: ""
+      operationId: "addAlumno"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer Token"
+      - in: "body"
+        name: "body"
+        description: "Objeto alumno para añadir"
+        required: true
+        schema:
+          $ref: "#/definitions/AlumnoContent"
+      responses:
+        "422":
+          description: "Datos no válidos"
+      security:
+      - api_key: []
+    put:
+      tags:
+      - "alumno"
+      summary: "Actualizar alumno"
+      description: ""
+      operationId: "updateAlumno"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer Token"
+      - in: "body"
+        name: "body"
+        description: "Objeto alumno con datos a actualizar"
+        required: true
+        schema:
+          $ref: "#/definitions/Alumno"
+      responses:
+        "404":
+          description: "Alumno no encontrado"
+        "422":
+          description: "Datos no válidos"
+      security:
+      - api_key: []
+    delete:
+      tags:
+      - "alumno"
+      summary: "Eliminar alumno"
+      description: ""
+      operationId: "deleteAlumno"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer Token"
+      - in: "body"
+        name: "uuid"
+        schema:
+          $ref: "#/definitions/AlumnoID"
+        description: "Id del alumno a eliminar"
+        required: true
+      responses:
+        "404":
+          description: "Alumno no encontrado"
+        "422":
+          description: "Datos no válidos"
+      security:
+      - api_key: []
+  /auth/signup:
+    post:
+      tags:
+      - "user"
+      summary: "Registro de nuevo usuario"
+      description: ""
+      operationId: "registerUser"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "user"
+        in: "body"
+        description: "Usuario a registrar"
+        required: true
+        schema:
+          $ref: "#/definitions/UserRegisterCredentials"
+      responses:
+        "200":
+          description: "Usuario registrado"
+          schema:
+            $ref: "#/definitions/UserSignedUp"
+        "400":
+          description: "Datos no válidos"
+        "422":
+          description: "Datos no válidos"
+  /auth/signin:
+    post:
+      tags:
+      - "user"
+      summary: "Inicio de sesión del usuario"
+      description: ""
+      operationId: "loginUser"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "username"
+        in: "body"
+        description: "The user name for login"
+        required: true
+        schema:
+          $ref: "#/definitions/UserCredentials"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/LoginResponse"
+        "400":
+          description: "Invalid username/password supplied"
+  /user/logout:
+    post:
+      tags:
+      - "user"
+      summary: "Cierra sesión activa"
+      description: ""
+      operationId: "logoutUser"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "header"
+        name: "Authorization"
+        description: "Bearer Token"
+      responses:
+        default:
+          description: "successful operation"
+securityDefinitions:
+  api_key:
+    type: "apiKey"
+    name: "JWT Token"
+    in: "header"
+definitions:
+  User:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      username:
+        type: "string"
+      firstName:
+        type: "string"
+      lastName:
+        type: "string"
+      email:
+        type: "string"
+      password:
+        type: "string"
+      phone:
+        type: "string"
+      userStatus:
+        type: "integer"
+        format: "int32"
+        description: "User Status"
+    xml:
+      name: "User"
+  Alumno:
+    type: "object"
+    required:
+    - "name"
+    - "photoUrls"
+    properties:
+      uuid:
+        type: "string"
+        format: "uuid"
+      nombre:
+        type: "string"
+        example: "Antón"
+      apellidos:
+        type: "string"
+        example: "Fernández"
+      direccion:
+        type: "string"
+        example: "Calle Falsa 123"
+      poblacion:
+        type: "string"
+        example: "Madrid"
+      codigo_postal:
+        type: "string"
+        example: "12345"
+      curso:
+        type: "string"
+        example: "Curso 1"
+  AlumnoID:
+    type: "object"
+    required:
+    - "uuid"
+    properties:
+      uuid:
+        type: "string"
+        example: "6c1d08e7-52cd-471e-a235-3aa7170c8c52"
+    xml:
+      name: "Pet"
+  AlumnoContent:
+    type: "object"
+    required:
+    - "name"
+    - "apellidos"
+    - "direccion"
+    - "poblacion"
+    - "codigo_postal"
+    - "curso"
+    properties:
+      nombre:
+        type: "string"
+        example: "Antón"
+      apellidos:
+        type: "string"
+        example: "Fernández"
+      direccion:
+        type: "string"
+        example: "Calle Falsa 123"
+      poblacion:
+        type: "string"
+        example: "Madrid"
+      codigo_postal:
+        type: "string"
+        example: "12345"
+      curso:
+        type: "string"
+        example: "Curso 1"
+  UserCredentials:
+    type: "object"
+    required:
+    - "email"
+    - "password"
+    properties:
+      email:
+        type: "string"
+        example: "test@test.com"
+      password:
+        type: "string"
+        example: "test"
+  UserRegisterCredentials:
+    type: "object"
+    required:
+    - "name"
+    - "email"
+    - "password"
+    - "password_confirmation"
+    properties:
+      name:
+        type: "string"
+        example: "test"
+      email:
+        type: "string"
+        example: "test@test.com"
+      password:
+        type: "string"
+        example: "test"
+      password_confirmation:
+        type: "string"
+        example: "test"
+  UserSignedUp:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        example: "User signed up"
+      user:
+        type: "object"
+        properties:
+          name:
+            type: "string"
+            example: "test"
+          email:
+            type: "string"
+            example: "test@test.com"
+          created_at:
+            type: "string"
+            example: "2021-01-16T17:02:19.000000Z"
+          updated_at:
+            type: "string"
+            example: "2021-01-16T17:02:19.000000Z"
+          id:
+            type: "string"
+            example: "1"
+  LoginResponse:
+    type: "object"
+    properties:
+      access_token:
+        type: "string"
+        example: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9zaWduaW4iLCJpYXQiOjE2MTA4MTY1ODEsImV4cCI6MTYxMDgyMDE4MSwibmJmIjoxNjEwODE2NTgxLCJqdGkiOiJzU3Fwcnk4a291aEs0elJ2Iiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.RDgpfBhUWxoqwZB5um6cgl38a2gxFmrgPgGxCt39GiE"
+      token_type:
+        type: "string"
+        example: "bearer"
+      expires_in:
+        type: "integer"
+        example: "3600"
+      user:
+        type: "object"
+        properties:
+          id:
+            type: "string"
+            example: "1"
+          name:
+            type: "string"
+            example: "test"
+          email:
+            type: "string"
+            example: "test@test.com"
+          email_verified_at:
+            type: "string"
+            example: "2021-01-16T17:02:19.000000Z"
+          created_at:
+            type: "string"
+            example: "2021-01-16T17:02:19.000000Z"
+          updated_at:
+            type: "string"
+            example: "2021-01-16T17:02:19.000000Z"
+  ApiResponse:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      type:
+        type: "string"
+      message:
+        type: "string"

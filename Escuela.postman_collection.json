@@ -1,0 +1,288 @@
+{
+	"info": {
+		"_postman_id": "db304d5b-5b07-4d9b-b319-b6ef62448835",
+		"name": "Escuela",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Alumnos",
+			"item": [
+				{
+					"name": "Listar Alumnos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mostrar Alumno",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/alumno?uuid=6c1d08e7-52cd-471e-a235-3aa7170c8c52",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"alumno"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "6c1d08e7-52cd-471e-a235-3aa7170c8c52"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Alumno",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9zaWduaW4iLCJpYXQiOjE2MTA4MTY1ODEsImV4cCI6MTYxMDgyMDE4MSwibmJmIjoxNjEwODE2NTgxLCJqdGkiOiJzU3Fwcnk4a291aEs0elJ2Iiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.RDgpfBhUWxoqwZB5um6cgl38a2gxFmrgPgGxCt39GiE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"nombre\" : \"test@test.com\",\r\n\t\"apellidos\" : \"test12\",\r\n\t\"direccion\" : \"calle 123\",\r\n\t\"poblacion\" : \"calle 123\",\r\n\t\"codigo_postal\" : \"12345\",\r\n\t\"curso\" : \"calle 123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "/alumno",
+							"path": [
+								"alumno"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Alumno",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9zaWduaW4iLCJpYXQiOjE2MTA4MTY1ODEsImV4cCI6MTYxMDgyMDE4MSwibmJmIjoxNjEwODE2NTgxLCJqdGkiOiJzU3Fwcnk4a291aEs0elJ2Iiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.RDgpfBhUWxoqwZB5um6cgl38a2gxFmrgPgGxCt39GiE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"uuid\": \"6c1d08e7-52cd-471e-a235-3aa7170c8c52\",\r\n    \"nombre\" : \"Nombre\",\r\n    \"apellidos\" : \"test1234\",\r\n    \"direccion\" : \"123\",\r\n    \"poblacion\" : \"calle 123\",\r\n    \"codigo_postal\" : \"12345\",\r\n    \"curso\" : \"calle 123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "/alumno",
+							"path": [
+								"alumno"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Alumno Copy 2",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9zaWduaW4iLCJpYXQiOjE2MTA4MTY1ODEsImV4cCI6MTYxMDgyMDE4MSwibmJmIjoxNjEwODE2NTgxLCJqdGkiOiJzU3Fwcnk4a291aEs0elJ2Iiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.RDgpfBhUWxoqwZB5um6cgl38a2gxFmrgPgGxCt39GiE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"uuid\": \"6c1d08e7-52cd-471e-a235-3aa7170c8c52\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "/alumno",
+							"path": [
+								"alumno"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Sign up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\" : \"test\",\r\n\t\"email\" : \"test@test.com\",\r\n\t\"password\" : \"test12\",\r\n\t\"password_confirmation\" : \"test12\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/signup",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"email\" : \"test@test.com\",\r\n\t\"password\" : \"test12\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/signin",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9zaWduaW4iLCJpYXQiOjE2MTA4MTY1ODEsImV4cCI6MTYxMDgyMDE4MSwibmJmIjoxNjEwODE2NTgxLCJqdGkiOiJzU3Fwcnk4a291aEs0elJ2Iiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.RDgpfBhUWxoqwZB5um6cgl38a2gxFmrgPgGxCt39GiE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/auth/signout",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"signout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Perfil de usuario logeado",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9zaWduaW4iLCJpYXQiOjE2MTA4MTY1ODEsImV4cCI6MTYxMDgyMDE4MSwibmJmIjoxNjEwODE2NTgxLCJqdGkiOiJzU3Fwcnk4a291aEs0elJ2Iiwic3ViIjoxLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.RDgpfBhUWxoqwZB5um6cgl38a2gxFmrgPgGxCt39GiE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/auth/signout",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"signout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:8000/api"
+		}
+	]
+}
