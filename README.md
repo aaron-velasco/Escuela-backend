@@ -28,27 +28,39 @@ Para poner funcionar la aplicación sigue los siguientes pasos
    git clone https://github.com/aaron-velasco/Escuela-backend.git
    ```
 
-2. Construye la imagen de docker
+2. Copia .env.copy a un archivo con nombre .env
+
+3. Instala las dependencias de composer
+ ```sh
+   composer install
+   ```
+
+4. Construye la imagen de docker
    ```sh
    docker-compose build-app
    ```
 
-3. Arranca los contenedores de la aplicación
+5. Construye la imagen de docker
+   ```sh
+   docker-compose build-app
+   ```
+
+6. Arranca los contenedores de la aplicación
    ```sh
    docker-compose up -d
    ```
 
-4. Genera la clave de la aplicación
+7. Genera la clave de la aplicación
    ```sh
    docker-compose exec app php artisan key:generate
    ```
 
-5. Genera la clave de seguridad para JWT
+8. Genera la clave de seguridad para JWT
    ```sh
    docker-compose exec app php artisan jwt:secret
    ```
 
-6. Realiza las migraciones de la base de datos
+9. Realiza las migraciones de la base de datos
    ```sh
    docker-compose exec app php artisan migrate
    ```
