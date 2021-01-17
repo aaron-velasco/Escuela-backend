@@ -28,7 +28,7 @@ Para poner funcionar la aplicación sigue los siguientes pasos
    git clone https://github.com/aaron-velasco/Escuela-backend.git
    ```
 
-2. Copia .env.copy a un archivo con nombre .env
+2. Copia .env.example a un archivo con nombre .env
 
 3. Instala las dependencias de composer
  ```sh
@@ -37,7 +37,7 @@ Para poner funcionar la aplicación sigue los siguientes pasos
 
 4. Construye la imagen de docker
    ```sh
-   docker-compose build-app
+   docker-compose build app
    ```
 
 5. Construye la imagen de docker
