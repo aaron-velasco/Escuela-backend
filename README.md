@@ -37,30 +37,25 @@ Para poner funcionar la aplicación sigue los siguientes pasos
 
 4. Construye la imagen de docker
    ```sh
-   docker-compose build app
-   ```
-
-5. Construye la imagen de docker
-   ```sh
    docker-compose build-app
    ```
 
-6. Arranca los contenedores de la aplicación
+5. Arranca los contenedores de la aplicación
    ```sh
    docker-compose up -d
    ```
 
-7. Genera la clave de la aplicación
+6. Genera la clave de la aplicación
    ```sh
    docker-compose exec app php artisan key:generate
    ```
 
-8. Genera la clave de seguridad para JWT
+7. Genera la clave de seguridad para JWT
    ```sh
    docker-compose exec app php artisan jwt:secret
    ```
 
-9. Realiza las migraciones de la base de datos
+8. Realiza las migraciones de la base de datos
    ```sh
    docker-compose exec app php artisan migrate
    ```
