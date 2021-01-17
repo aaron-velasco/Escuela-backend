@@ -14,7 +14,20 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "{{BASE_URL}}/alumnos",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"alumnos"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
 						}
 					},
 					"response": []
@@ -67,7 +80,10 @@
 							}
 						},
 						"url": {
-							"raw": "/alumno",
+							"raw": "{{BASE_URL}}/alumno",
+							"host": [
+								"{{BASE_URL}}"
+							],
 							"path": [
 								"alumno"
 							]
@@ -100,7 +116,10 @@
 							}
 						},
 						"url": {
-							"raw": "/alumno",
+							"raw": "{{BASE_URL}}/alumno",
+							"host": [
+								"{{BASE_URL}}"
+							],
 							"path": [
 								"alumno"
 							]
@@ -109,7 +128,7 @@
 					"response": []
 				},
 				{
-					"name": "Crear Alumno Copy 2",
+					"name": "Borrar Alumno",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -133,7 +152,10 @@
 							}
 						},
 						"url": {
-							"raw": "/alumno",
+							"raw": "{{BASE_URL}}/alumno",
+							"host": [
+								"{{BASE_URL}}"
+							],
 							"path": [
 								"alumno"
 							]
