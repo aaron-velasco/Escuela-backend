@@ -112,7 +112,7 @@ class AlumnoController extends Controller
 
         $alumno->save();
 
-        return response('Elemento editado correctamente', 200);
+        return response()->json('Alumno actualizado');
     }
 
     /**
@@ -135,6 +135,6 @@ class AlumnoController extends Controller
 
         $alumno->delete();
         
-        return response('Elemento eliminado correctamente', 200);
+        return response()->json('Alumno borrado');
     }
 }
