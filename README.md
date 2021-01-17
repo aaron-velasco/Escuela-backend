@@ -31,7 +31,7 @@ Para poner funcionar la aplicación sigue los siguientes pasos
 2. Copia .env.example a un archivo con nombre .env
 
 3. Instala las dependencias de composer
- ```sh
+   ```sh
    composer install
    ```
 
